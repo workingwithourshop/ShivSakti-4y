@@ -28,6 +28,7 @@ export default function AboutPage() {
                 workers looking for meaningful employment opportunities. We believe in creating sustainable partnerships
                 that benefit both employers and employees.
               </p>
+        
               <p className="text-lg text-gray-600 mb-6">
                 Founded with the vision of transforming the labor industry, we have grown from a small local operation
                 to a trusted name in workforce solutions. Our commitment to quality, reliability, and professionalism
@@ -75,6 +76,7 @@ export default function AboutPage() {
             </div>
           </div>
         </div>
+        
       </section>
 
       {/* Types of Labor */}

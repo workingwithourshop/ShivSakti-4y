@@ -132,7 +132,7 @@ export default function ContactPage() {
                           required
                           value={formData.phone}
                           onChange={handleChange}
-                          placeholder="+91 98765 43210"
+                          placeholder="+91 9999999999"
                         />
                       </div>
 
@@ -180,7 +180,7 @@ export default function ContactPage() {
                       </div>
                       <div>
                         <h3 className="font-semibold text-gray-900">Phone</h3>
-                        <p className="text-gray-600">+91 98765 43210</p>
+                        <p className="text-gray-600">+91 9309160690 , +91 6392286456</p>
                         <p className="text-sm text-gray-500">Mon-Sat, 9 AM - 7 PM</p>
                       </div>
                     </div>
@@ -196,12 +196,12 @@ export default function ContactPage() {
                       <div>
                         <h3 className="font-semibold text-gray-900">WhatsApp</h3>
                         <a
-                          href="https://wa.me/919876543210"
+                          href="https://wa.me/9309160690"
                           target="_blank"
                           rel="noopener noreferrer"
                           className="text-green-600 hover:text-green-700"
                         >
-                          +91 98765 43210
+                          +91 9309160690
                         </a>
                         <p className="text-sm text-gray-500">Quick responses</p>
                       </div>
@@ -217,7 +217,7 @@ export default function ContactPage() {
                       </div>
                       <div>
                         <h3 className="font-semibold text-gray-900">Email</h3>
-                        <p className="text-gray-600">info@shivsakti.com</p>
+                        <p className="text-gray-600">ssppl24consultant@gmail.com</p>
                         <p className="text-sm text-gray-500">24-48 hour response</p>
                       </div>
                     </div>
@@ -233,10 +233,10 @@ export default function ContactPage() {
                       <div>
                         <h3 className="font-semibold text-gray-900">Address</h3>
                         <p className="text-gray-600">
-                          123 Business District
+                          Amar Jyoti Appartment,Flat no-5,S.No-99
                           <br />
-                          Industrial Area, City - 400001
-                          <br />
+                          Telco Road,Yashwantnagar ,Pimpri, Pune - 411018
+                          <br/>
                           Maharashtra, India
                         </p>
                       </div>
@@ -284,10 +284,13 @@ export default function ContactPage() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button asChild size="lg">
-              <a href="tel:+919876543210">Call Now</a>
+              <a href="tel:+919309160690">Call Now</a>
+              </Button>
+              <Button asChild size="lg">
+              <a href="tel:+916392286456">Call Now</a>
             </Button>
             <Button asChild variant="outline" size="lg">
-              <a href="https://wa.me/919876543210" target="_blank" rel="noopener noreferrer">
+              <a href="https://wa.me/9309160690" target="_blank" rel="noopener noreferrer">
                 WhatsApp
               </a>
             </Button>

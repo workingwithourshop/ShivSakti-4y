@@ -19,11 +19,11 @@ export function Footer() {
             <div className="flex space-x-4">
               <div className="flex items-center space-x-2">
                 <Phone className="h-4 w-4 text-blue-400" />
-                <span className="text-sm">+91 98765 43210</span>
+                <span className="text-sm">+91 9309160690 , +91 6392286456</span>
               </div>
               <div className="flex items-center space-x-2">
                 <Mail className="h-4 w-4 text-blue-400" />
-                <span className="text-sm">info@shivsakti.com</span>
+                <span className="text-sm">ssppl24consultant@gmail.com</span>
               </div>
             </div>
           </div>
