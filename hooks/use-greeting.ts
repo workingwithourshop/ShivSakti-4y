@@ -89,69 +89,75 @@ export function useGreeting({ autoPlay = true, userName }: UseGreetingOptions = 
     [isOffline],
   )
 
-  const playPreparedAudio = useCallback((audioUrl: string): Promise<boolean> => {
-    return new Promise((resolve) => {
-      const audio = new Audio(audioUrl)
-      setCurrentAudio(audio)
+  const playPreparedAudio = useCallback(
+    (audioUrl: string): Promise<boolean> => {
+      return new Promise((resolve) => {
+        const audio = new Audio(audioUrl)
+        setCurrentAudio(audio)
 
-      audio.onended = () => {
-        console.log("Audio playback completed")
-        setIsPlaying(false)
-        setHasPlayed(true)
-        // Mark greeting as shown for today
-        markGreetingShown()
-        // Hide banner immediately when audio ends
-        setIsVisible(false)
-        resolve(true)
-      }
+        audio.onended = () => {
+          console.log("Audio playback completed")
+          setIsPlaying(false)
+          setHasPlayed(true)
+          // Mark greeting as shown for today
+          markGreetingShown()
+          // Hide banner immediately when audio ends
+          setIsVisible(false)
+          resolve(true)
+        }
 
-      audio.onerror = (error) => {
-        console.error("Audio playback error:", error)
-        setIsPlaying(false)
-        resolve(false)
-      }
+        audio.onerror = (error) => {
+          console.error("Audio playback error:", error)
+          setIsPlaying(false)
+          resolve(false)
+        }
 
-      audio.play().catch((error) => {
-        console.error("Audio play failed:", error)
-        setIsPlaying(false)
-        resolve(false)
+        audio.play().catch((error) => {
+          console.error("Audio play failed:", error)
+          setIsPlaying(false)
+          resolve(false)
+        })
+
+        setIsPlaying(true)
       })
+    },
+    [markGreetingShown],
+  )
 
-      setIsPlaying(true)
-    })
-  }, [markGreetingShown])
+  const playBrowserTTS = useCallback(
+    (text: string): Promise<boolean> => {
+      return new Promise((resolve) => {
+        if (!("speechSynthesis" in window)) {
+          resolve(false)
+          return
+        }
 
-  const playBrowserTTS = useCallback((text: string): Promise<boolean> => {
-    return new Promise((resolve) => {
-      if (!("speechSynthesis" in window)) {
-        resolve(false)
-        return
-      }
+        const utterance = new SpeechSynthesisUtterance(text)
+        utterance.rate = 0.9
+        utterance.pitch = 1
 
-      const utterance = new SpeechSynthesisUtterance(text)
-      utterance.rate = 0.9
-      utterance.pitch = 1
+        utterance.onend = () => {
+          console.log("Browser TTS completed")
+          setIsPlaying(false)
+          setHasPlayed(true)
+          // Mark greeting as shown for today
+          markGreetingShown()
+          // Hide banner immediately when audio ends
+          setIsVisible(false)
+          resolve(true)
+        }
 
-      utterance.onend = () => {
-        console.log("Browser TTS completed")
-        setIsPlaying(false)
-        setHasPlayed(true)
-        // Mark greeting as shown for today
-        markGreetingShown()
-        // Hide banner immediately when audio ends
-        setIsVisible(false)
-        resolve(true)
-      }
+        utterance.onerror = () => {
+          setIsPlaying(false)
+          resolve(false)
+        }
 
-      utterance.onerror = () => {
-        setIsPlaying(false)
-        resolve(false)
-      }
-
-      speechSynthesis.speak(utterance)
-      setIsPlaying(true)
-    })
-  }, [markGreetingShown])
+        speechSynthesis.speak(utterance)
+        setIsPlaying(true)
+      })
+    },
+    [markGreetingShown],
+  )
 
   const playGreeting = useCallback(async () => {
     if (isPlaying) return

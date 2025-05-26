@@ -5,7 +5,7 @@ import type React from "react"
 import { useState, useRef, useCallback } from "react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
-import { X, Volume2, VolumeX, Sparkles, Loader2, AlertCircle, Calendar } from 'lucide-react'
+import { X, Volume2, VolumeX, Sparkles, Loader2, AlertCircle, Calendar } from "lucide-react"
 import { useGreeting } from "@/hooks/use-greeting"
 
 interface AutomatedGreetingBannerProps {
