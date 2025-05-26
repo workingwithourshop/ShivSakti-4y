@@ -12,7 +12,7 @@ export function Navigation() {
     { href: "/", label: "Home" },
     { href: "/about", label: "About" },
     { href: "/services", label: "Services" },
-    { href: "/client", label: "Our Client" },
+    { href: "/client", label: "Our Clients" },
     { href: "/contact", label: "Contact" },
   ]
 
@@ -23,7 +23,7 @@ export function Navigation() {
           {/* Logo */}
           <Link href="/" className="flex items-center space-x-2">
             <Hammer className="h-8 w-8 text-blue-600" />
-            <span className="text-xl font-bold text-gray-900">Shivshakti</span>
+            <span className="text-xl font-bold text-gray-900">SHIV SHAKTI</span>
           </Link>
 
           {/* Desktop Navigation */}
