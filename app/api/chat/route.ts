@@ -142,7 +142,7 @@ Always start responses by acknowledging you're shivshakti' AI Assistant.`,
         },
       }),
     },
-    maxToolRoundtrips: 3,
+      maxSteps: 5,
   })
 
   return result.toDataStreamResponse()
