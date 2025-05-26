@@ -47,6 +47,12 @@ export function Footer() {
                   Services
                 </Link>
               </li>
+              
+              <li>
+                <Link href="/client" className="text-gray-300 hover:text-white transition-colors">
+                  Our Clients
+                </Link>
+              </li>
               <li>
                 <Link href="/contact" className="text-gray-300 hover:text-white transition-colors">
                   Contact
