@@ -23,7 +23,7 @@ export function Navigation() {
           {/* Logo */}
           <Link href="/" className="flex items-center space-x-2">
             <Hammer className="h-8 w-8 text-blue-600" />
-            <span className="text-xl font-bold text-gray-900">SHIV SHAKTI</span>
+            <span className="text-xl font-bold text-gray-900">SHIVSHAKTI</span>
           </Link>
 
           {/* Desktop Navigation */}
