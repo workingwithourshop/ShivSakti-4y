@@ -97,20 +97,8 @@ Areas such as automated helpdesks, AI-enabled CRM platforms, intelligent billing
 `
 
 function searchCompanyKnowledge(query: string): string {
-  const queryLower = query.toLowerCase()
-  const lines = companyKnowledge.split("\n")
 
-  // Simple keyword matching for RAG simulation
-  const relevantLines = lines.filter((line) => {
-    const lineLower = line.toLowerCase()
-    return queryLower.split(" ").some((word) => word.length > 2 && lineLower.includes(word))
-  })
-
-  if (relevantLines.length === 0) {
-    return "I don't have specific information about that topic in our company database. Please contact our support team for more details."
-  }
-
-  return relevantLines.join("\n").trim()
+  return companyKnowledge
 }
 
 export async function POST(req: Request) {
