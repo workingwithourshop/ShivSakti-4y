@@ -228,11 +228,17 @@ export default function AIAssistant() {
   }
 
   const handleVoiceTranscript = (transcript: string) => {
-    setInput(transcript)
-    setIsTyping(true)
-    setCurrentThinking("")
-    setIsThinkingComplete(false)
-    handleSubmit(transcript)
+  const syntheticEvent = {
+    preventDefault: () => {},
+    target: { elements: { prompt: { value: transcript } } },
+  } as unknown as React.FormEvent<HTMLFormElement>
+
+  setIsTyping(true)
+  setCurrentThinking("")
+  setIsThinkingComplete(false)
+  handleSubmit(syntheticEvent)
+}
+
     
   }
 
