@@ -4,6 +4,7 @@ import { Inter } from "next/font/google"
 import "./globals.css"
 import { Navigation } from "@/components/navigation"
 import { Footer } from "@/components/footer"
+import AIAssistant from "@/components/ai-assistant"
 
 const inter = Inter({ subsets: ["latin"] })
 
@@ -24,6 +25,7 @@ export default function RootLayout({
       <body className={inter.className}>
         <Navigation />
         <main className="min-h-screen">{children}</main>
+        <AIAssistant />
         <Footer />
       </body>
     </html>
