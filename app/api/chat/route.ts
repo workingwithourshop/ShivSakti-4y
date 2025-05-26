@@ -96,12 +96,12 @@ While Shiv Shakti Precision Works Pvt. Ltd. is primarily a manpower supplier and
 Areas such as automated helpdesks, AI-enabled CRM platforms, intelligent billing systems, and recruitment chatbots can significantly streamline their customer service operations and improve both client satisfaction and operational efficiency.
 `
 
-function searchCompanyKnowledge(query: string): string {
+async function searchCompanyKnowledge(query: string): string {
 
-const { text } = await generateText({
-  model: google('gemini-2.5-flash-preview-04-17'),
-  prompt:`Base on the detail : """ ${companyKnowledge} """. Give Answer of Query : ${query}`
-});
+  const { text } = await generateText({
+    model: google('gemini-2.5-flash-preview-04-17'),
+    prompt:`Base on the detail : """ ${companyKnowledge} """. Give Answer of Query : ${query}`
+  });
   return text
 }
 export async function POST(req: Request) {
@@ -138,7 +138,7 @@ Always start responses by acknowledging you're shivshakti' AI Assistant.`,
           query: z.string().describe("The search query for company information"),
         }),
         execute: async ({ query }) => {
-          return searchCompanyKnowledge(query)
+          return await searchCompanyKnowledge(query)
         },
       }),
     },
