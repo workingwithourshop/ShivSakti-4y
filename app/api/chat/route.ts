@@ -98,9 +98,12 @@ Areas such as automated helpdesks, AI-enabled CRM platforms, intelligent billing
 
 function searchCompanyKnowledge(query: string): string {
 
-  return companyKnowledge
+const { text } = await generateText({
+  model: google('gemini-2.5-flash-preview-04-17'),
+  prompt:`Base on the detail : """ ${companyKnowledge} """. Give Answer of Query : ${query}`
+});
+  return text
 }
-
 export async function POST(req: Request) {
   const { messages } = await req.json()
 
