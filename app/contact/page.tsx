@@ -217,20 +217,25 @@ export default function ContactPage() {
                   </CardContent>
                 </Card>
 
-                <Card>
-                  <CardContent className="p-6">
-                    <div className="flex items-center space-x-4">
-                      <div className="bg-purple-100 p-3 rounded-lg">
-                        <Mail className="h-6 w-6 text-purple-600" />
-                      </div>
-                      <div>
-                        <h3 className="font-semibold text-gray-900">Email</h3>
-                        <p className="text-gray-600">ssppl24consultant@gmail.com</p>
-                        <p className="text-sm text-gray-500">24-48 hour response</p>
-                      </div>
-                    </div>
-                  </CardContent>
-                </Card>
+               <Card>
+  <CardContent className="p-6">
+    <div className="flex items-center space-x-4">
+      <div className="bg-purple-100 p-3 rounded-lg">
+        <Mail className="h-6 w-6 text-purple-600" />
+      </div>
+      <div>
+        <h3 className="font-semibold text-gray-900">Email</h3>
+        <a 
+          href="mailto:ssppl24consultant@gmail.com"
+          className="text-purple-600 hover:text-purple-700 hover:underline"
+        >
+          ssppl24consultant@gmail.com
+        </a>
+        <p className="text-sm text-gray-500">24-48 hour response</p>
+      </div>
+    </div>
+  </CardContent>
+</Card>
 
                 <Card>
                   <CardContent className="p-6">
