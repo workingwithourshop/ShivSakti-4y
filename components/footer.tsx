@@ -10,7 +10,8 @@ export function Footer() {
           <div className="col-span-1 md:col-span-2">
             <div className="flex items-center space-x-2 mb-4">
               <Hammer className="h-8 w-8 text-blue-400" />
-              <span className="text-xl font-bold">Shivshakti</span>
+              <span className="text-xl font-bold">SHIV SHAKTI PRECISION WORKS PVT
+LTD</span>
             </div>
             <p className="text-gray-300 mb-4">
               Providing reliable labor services for construction, industrial, and logistics needs. Your trusted partner
