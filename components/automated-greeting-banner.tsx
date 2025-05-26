@@ -5,7 +5,7 @@ import type React from "react"
 import { useState, useRef, useCallback } from "react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
-import { X, Volume2, VolumeX, Sparkles, Loader2, AlertCircle } from "lucide-react"
+import { X, Volume2, VolumeX, Sparkles, Loader2, AlertCircle, Calendar } from 'lucide-react'
 import { useGreeting } from "@/hooks/use-greeting"
 
 interface AutomatedGreetingBannerProps {
@@ -31,6 +31,8 @@ export default function AutomatedGreetingBanner({
     isAudioReady,
     isOffline,
     audioPreparationFailed,
+    shouldShowGreeting,
+    isChecking,
     playGreeting,
     stopGreeting,
     hideGreeting,
@@ -97,7 +99,8 @@ export default function AutomatedGreetingBanner({
     setDragOffset(0)
   }, [isDragging, dragOffset, hideGreeting])
 
-  if (!isVisible || isOffline) return null
+  // Don't render if checking daily status, offline, or shouldn't show today
+  if (isChecking || !shouldShowGreeting || isOffline || !isVisible) return null
 
   const getStatusIcon = () => {
     if (!isAudioReady) {
@@ -111,15 +114,15 @@ export default function AutomatedGreetingBanner({
 
   const getStatusText = () => {
     if (!isAudioReady) {
-      return "Preparing greeting..."
+      return "Preparing daily greeting..."
     }
     if (isPlaying) {
-      return "Playing greeting..."
+      return "Playing daily greeting..."
     }
     if (audioPreparationFailed) {
       return "Using browser audio"
     }
-    return null
+    return "Daily greeting ready"
   }
 
   return (
@@ -159,12 +162,13 @@ export default function AutomatedGreetingBanner({
               </div>
 
               <div className="flex-1 min-w-0">
-                <p className="text-sm font-medium text-gray-800 truncate">{greetingText}</p>
-                {getStatusText() && (
-                  <p className={`text-xs mt-1 ${audioPreparationFailed ? "text-yellow-600" : "text-blue-600"}`}>
-                    {getStatusText()}
-                  </p>
-                )}
+                <div className="flex items-center space-x-2">
+                  <p className="text-sm font-medium text-gray-800 truncate">{greetingText}</p>
+                  <Calendar className="w-3 h-3 text-gray-500 flex-shrink-0" title="Daily greeting" />
+                </div>
+                <p className={`text-xs mt-1 ${audioPreparationFailed ? "text-yellow-600" : "text-blue-600"}`}>
+                  {getStatusText()}
+                </p>
               </div>
             </div>
 
@@ -185,6 +189,7 @@ export default function AutomatedGreetingBanner({
                 onClick={hideGreeting}
                 className="h-8 w-8 p-0 hover:bg-red-100 text-gray-500 hover:text-red-600"
                 disabled={isDragging}
+                title="Dismiss for today"
               >
                 <X className="w-4 h-4" />
               </Button>
@@ -194,7 +199,7 @@ export default function AutomatedGreetingBanner({
           {/* Swipe indicator */}
           {isDragging && dragOffset > 20 && (
             <div className="mt-2 text-xs text-gray-500 text-center">
-              {dragOffset > 80 ? "Release to dismiss" : "Swipe right to dismiss"}
+              {dragOffset > 80 ? "Release to dismiss for today" : "Swipe right to dismiss for today"}
             </div>
           )}
         </CardContent>

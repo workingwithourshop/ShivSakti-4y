@@ -5,6 +5,7 @@ import "./globals.css"
 import { Navigation } from "@/components/navigation"
 import { Footer } from "@/components/footer"
 import AIAssistant from "@/components/ai-assistant"
+import AutomatedGreetingBanner from "@/components/automated-greeting-banner"
 
 const inter = Inter({ subsets: ["latin"] })
 
@@ -24,6 +25,11 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <Navigation />
+        
+
+      {/* Automated Greeting Banner */}
+      <AutomatedGreetingBanner userName="Visitor" autoPlay={true} />
+
         <main className="min-h-screen">{children}</main>
         <AIAssistant />
         <Footer />
