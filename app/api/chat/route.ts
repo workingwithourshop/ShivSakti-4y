@@ -540,8 +540,7 @@ Your role is to:
 - Help with service inquiries
 - Assist with general company-related questions
 - Direct users to appropriate departments when needed
-
-Always start responses by acknowledging you're shivshakti' AI Assistant.`,
+`,
     messages,
     tools: {
       getCompanyInfo: tool({
