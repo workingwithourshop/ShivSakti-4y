@@ -203,6 +203,14 @@ export default function ContactPage() {
                         >
                           +91 9309160690
                         </a>
+                         <a
+                          href="https://wa.me/91 6392286456"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-green-600 hover:text-green-700"
+                        >
+                          +91 6392286456
+                        </a>
                         <p className="text-sm text-gray-500">Quick responses</p>
                       </div>
                     </div>
@@ -291,6 +299,11 @@ export default function ContactPage() {
             </Button>
             <Button asChild variant="outline" size="lg">
               <a href="https://wa.me/91 9309160690" target="_blank" rel="noopener noreferrer">
+                WhatsApp
+              </a>
+            </Button>
+            <Button asChild variant="outline" size="lg">
+              <a href="https://wa.me/91 6392286456" target="_blank" rel="noopener noreferrer">
                 WhatsApp
               </a>
             </Button>
