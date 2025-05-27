@@ -75,18 +75,23 @@ export default function ClientsPage() {
       location: "PITHAMPUR, INDORE, MP",
       category: "Logistics & Supply Chain",
     },
+    {
+      name: "TVS Supply Chain",
+      location: "Neemrana Rajasthan Hero Plant",
+    category: "Logistics & Supply Chain",
+    },
   ]
 
   const stats = [
     {
       icon: Building2,
-      number: "14+",
+      number: "15+",
       label: "Major Clients",
       description: "Leading companies across industries",
     },
     {
       icon: MapPin,
-      number: "8+",
+      number: "9+",
       label: "States Covered",
       description: "Pan-India presence and operations",
     },
@@ -280,6 +285,7 @@ export default function ClientsPage() {
               "Haryana",
               "Delhi NCR",
               "Punjab",
+              "Rajasthan",
             ].map((state, index) => (
               <div key={index} className="text-center p-4 bg-gray-50 rounded-lg">
                 <MapPin className="h-6 w-6 text-blue-600 mx-auto mb-2" />
